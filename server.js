@@ -9,11 +9,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(express.json());
+dbConnect();
 
 // Cors
 const corsOptions = {
-  origin: process.env.ALLOWED_CLIENTS.split(","),
-};
+  origin: process.env.ALLOWED_CLIENTS.split(",")
+}
 app.use(cors(corsOptions));
 
 // template engine
@@ -25,7 +26,7 @@ app.use("/api/files", require("./routes/files"));
 app.use("/files", require("./routes/show"));
 app.use("/files/download", require("./routes/download"));
 
-dbConnect();
+
 
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
