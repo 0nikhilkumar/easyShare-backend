@@ -12,7 +12,7 @@ async function sendMail({ from, to, subject, text, html }) {
   });
 
   let info = await trasporter.sendMail({
-    from: `inShare <${from}>`,
+    from: `easyShare <${from}>`,
     to,
     subject,
     text,
